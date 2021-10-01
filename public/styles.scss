@@ -1,0 +1,73 @@
+/*
+
+1 - Colors
+2 - Formatting
+3 - Utilities
+
+*/
+
+/* 1) COLORS */
+
+$theme-colors: (
+  "custom-title": #489b9b,
+  "custom-text-box": #c0d8d8,
+  "custom-body": #87b5b5,
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+@function theme-color($key: "primary") {
+    @return map-get($theme-colors, $key);
+  }
+
+body {
+  background-color: theme-color("custom-body");
+}
+
+.title {
+  background-color: theme-color("custom-title");
+}
+
+.text-box {
+  background-color: theme-color("custom-text-box");
+}
+
+code {
+  background: white;
+  color: black;
+}
+
+/* 2) FORMATTING */
+
+.text-box {
+  padding: 1rem 2rem;
+  margin-bottom:0;
+}
+
+#preview {
+  min-height: 15rem;
+}
+
+#editor {
+  height: 15rem;
+  overflow-y: scroll;
+}
+
+img {
+  width:100%;
+  height: auto;
+}
+
+/* 3) UTILITIES */
+
+.shadow-utility > * {
+  @extend .shadow;
+}
+
+.border-utility > * {
+  border: 1px solid black;
+}
+
+.border-utility > * + * {
+  border-top: none;
+}
